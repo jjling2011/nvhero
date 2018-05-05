@@ -2,7 +2,7 @@
   "name": "nvhero",
   "description": "Deploy nginx and v2ray on Heroku.",
   "keywords": [
-    "v2ray"
+    "nvhero"
   ],
   "env": {
     "VER": {
@@ -10,11 +10,11 @@
       "value": "3.21"
     },
     "WSPATH": {
-      "description": "ws路径，作死就用默认值",
+      "description": "ws路径,作死就用默认值",
       "value": "/v2ray"
     },
     "UUID": {
-      "description": "Vmess的UUID（即密码），作死就用默认值",
+      "description": "Vmess的UUID即密码,作死就用默认值",
       "value": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2"
     },
     "V2RAY_RAY_BUFFER_SIZE": {
@@ -22,7 +22,7 @@
       "value": "10"
     }
   },
-  "website": "none",
-  "repository": "none",
+  "website": "https://github.com/jjling2011/nvhero",
+  "repository": "https://github.com/jjling2011/nvhero",
   "stack": "container"
 }
