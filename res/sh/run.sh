@@ -2,7 +2,7 @@
 
 docker run \
     --rm \
-    -p 443:443 \
+    -p 80:80 \
     --env-file ./env.list  \
     --name nvhero \
     nvhero

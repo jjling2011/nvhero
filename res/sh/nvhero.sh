@@ -4,6 +4,6 @@ docker container  run \
     --rm \
     -d \
     --volume "$PWD/../../res":/res/ \
-    --volume "$PWD/../nginx":/etc/nginx \
-    --name nginx \
-    nginx
+    --name nvhero\
+    nvhero
+

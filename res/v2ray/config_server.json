@@ -1,10 +1,10 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "none"
   },
   "inbound": {
     "protocol": "vmess",
-    "port": "__PORT__",
+    "port": 1080,
     "settings": {
       "clients": [
         {
