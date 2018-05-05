@@ -1,0 +1,53 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": false,
+      "ip": "127.0.0.1"
+    }
+  },
+  "outbound": {
+    "tag": "agentout",
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "your_app_name.herokuapp.com",
+          "port": 443,
+          "users": [
+            {
+              "id": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2",
+              "alterId": 32,
+              "security": "auto",
+              "level": 0
+            }
+          ]
+        }
+      ]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "security": "tls",
+      "tlsSettings": {
+        "allowInsecure": true
+      },
+      "wsSettings": {
+        "connectionReuse": true,
+        "path": "your_ws_path",
+        "headers": {
+          "Host": "your_app_name.herokuapp.com"
+        }
+      }
+    },
+    "mux": {
+      "enabled": true,
+      "concurrency": 8
+    }
+  }
+}

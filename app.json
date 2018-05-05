@@ -1,0 +1,36 @@
+{
+  "name": "v2ray",
+  "description": "deploy v2ray to Heroku.",
+  "keywords": [
+    "v2ray"
+  ],
+  "env": {
+    "APPNAME": {
+      "description": "输入上面填的app name（用于生成证书）",
+      "value": ""
+    },
+    "VER": {
+      "description": "输入v2ray-core版本",
+      "value": "3.21"
+    },
+    "WSPATH": {
+      "description": "ws路径，想作死就用默认值",
+      "value": "/v2ray"
+    },
+    "UUID": {
+      "description": "Vmess协议默认UUID,请输入自己的UUID",
+      "value": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2"
+    },
+    "V2RAY_RAY_BUFFER_SIZE": {
+      "description": "每个连接的缓存大小，单位MB",
+      "value": "10"
+    },
+    "V2RAYPORT": {
+      "description": "v2ray在容器内使用的端口,随便设不冲突就可以",
+      "value": "1080"
+    }
+  },
+  "website": "https://github.com/wangyi2005/v2ray-heroku",
+  "repository": "https://github.com/wangyi2005/v2ray-heroku",
+  "stack": "container"
+}
