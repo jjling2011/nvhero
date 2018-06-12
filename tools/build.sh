@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build ../ -t nvhero
+docker build ../ -t v2ray-openshift

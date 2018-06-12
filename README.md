@@ -1,9 +1,11 @@
-### 一键部署到 heroku  
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)  
-
-### 用法
-在heroku注册账号后，点上面的图标，然后按提示操作。    
-`res/v2ray/config_client.json`是客户端的配置模板。  
+### 署到Openshift  
+  
+#### 全局变量  
+VER=3.18  
+UUID=xxx-xxx-xxx  
+WSPATH=/v2ray  // ws路径  
+PORT=1234  // 可能不用设  
+V2RAY_RAY_BUFFER_SIZE=1 // 缓存（MB）  
   
 ### 参考  
 https://github.com/jacopomeloni/nginxphpfpm-heroku  

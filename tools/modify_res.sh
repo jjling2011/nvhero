@@ -4,6 +4,6 @@ docker container  run \
     --rm \
     -d \
     --volume "$PWD/../../res":/res/ \
-    --name nvhero\
-    nvhero
+    --name v2ray-openshift\
+    v2ray-openshift
 

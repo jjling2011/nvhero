@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker image rm nvhero
+docker image rm v2ray-openshift
 docker system prune

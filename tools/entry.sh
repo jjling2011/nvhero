@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker exec -it nvhero sh
+docker exec -it v2ray-openshift sh
