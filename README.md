@@ -4,6 +4,8 @@
 完成Deploy后添加Routes加密选Edge  
 更新v2ray-core版本时改环境VER即可  
 openshift会自动重新部署  
+  
+`res/v2ray/config_client.json`是客户端的配置模板  
     
 #### 环境变量  
 VER=3.26  
