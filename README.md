@@ -1,14 +1,18 @@
 ### 部署到Openshift  
 创建账号后创建Project  
-在Project中Deploy image时填入下面的变量  
-完成Deploy后添加Routes  
+在Project中Deploy image时填入下面的环境变量  
+完成Deploy后添加Routes加密选Edge  
+更新v2ray-core版本时改环境VER即可openshift会自动重新部署  
   
-#### 全局变量  
-VER=3.18  
+#### 环境变量  
+VER=3.26  
 UUID=xxx-xxx-xxx  
-WSPATH=/v2ray  // ws路径  
-PORT=8080 // 与Dockerfile中Expose的端口相同    
-V2RAY_RAY_BUFFER_SIZE=1 // 缓存（MB）  
+// web socket 路径  
+WSPATH=/v2ray  
+// 与Dockerfile中Expose的端口相同  
+PORT=8080  
+// 每个userid的缓存 (MiB)
+V2RAY_RAY_BUFFER_SIZE=1   
   
 ### 参考  
 https://github.com/jacopomeloni/nginxphpfpm-heroku  

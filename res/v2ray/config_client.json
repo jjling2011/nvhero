@@ -18,11 +18,11 @@
     "settings": {
       "vnext": [
         {
-          "address": "your_app_name.herokuapp.com",
+          "address": "your_route_to_pot.openshiftapps.com",
           "port": 443,
           "users": [
             {
-              "id": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2",
+              "id": "your_user_id(xxxx-xxxx-xxxx...)",
               "alterId": 32,
               "security": "auto",
               "level": 0
@@ -39,10 +39,7 @@
       },
       "wsSettings": {
         "connectionReuse": true,
-        "path": "your_ws_path",
-        "headers": {
-          "Host": "your_app_name.herokuapp.com"
-        }
+        "path": "/your_websocket_path"
       }
     },
     "mux": {
