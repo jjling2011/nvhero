@@ -3,6 +3,7 @@
 
 ### 用法
 在heroku注册账号后，点上面的图标，然后按提示操作。    
+更新v2ray-core时,修改环境变量VER即可，heroku会自动重新部署。  
 `res/v2ray/config_client.json`是客户端的配置模板。  
   
 ### 参考  
