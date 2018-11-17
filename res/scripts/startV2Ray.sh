@@ -16,5 +16,6 @@ cp ${root}/config_server.json ./config.json
 sed -i "s/__UUID__/${UUID}/g" ./config.json
 sed -i "s#__WSPATH__#${WSPATH}#g" ./config.json
 
+chmod +x v2ctl
 chmod +x v2ray
 ./v2ray
