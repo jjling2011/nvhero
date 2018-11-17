@@ -5,7 +5,7 @@ cd ${root}
 
 if [ ! -f /res/v2ray/v2ray.zip ]; then
   wget -O v2ray.zip \
-      http://github.com/v2ray/v2ray-core/releases/download/v${VER}/v2ray-linux-64.zip
+      https://github.com/v2ray/v2ray-core/releases/download/v${VER}/v2ray-linux-64.zip
 fi
 
 unzip v2ray.zip
