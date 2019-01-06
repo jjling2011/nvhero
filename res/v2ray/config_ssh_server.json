@@ -1,0 +1,67 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "outbounds": [
+    {
+      "tag": "ssh_local",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "127.0.0.1:22"
+      }
+    },
+    {
+      "tag": "ssh_proxy",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "proxy address",
+            "port": 443,
+            "users": [
+              {
+                "id": "uuid"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/v2raysshout"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "sshportal"
+        ],
+        "domain": [
+          "full:ssh.rpi3b.test"
+        ],
+        "outboundTag": "ssh_proxy"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "sshportal"
+        ],
+        "outboundTag": "ssh_local"
+      }
+    ]
+  },
+  "reverse": {
+    "bridges": [
+      {
+        "tag": "sshportal",
+        "domain": "ssh.rpi3b.test"
+      }
+    ]
+  }
+}

@@ -42,7 +42,7 @@
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "/tmpa"
+          "path": "/v2raya"
         }
       }
     },
@@ -66,7 +66,7 @@
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "/tmpb"
+          "path": "/v2rayb"
         }
       }
     },
@@ -90,7 +90,7 @@
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "/tmpc"
+          "path": "/v2rayc"
         }
       }
     }

@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "debug"
+    "loglevel": "none"
   },
   "inbounds": [
     {
@@ -116,7 +116,6 @@
     }
   ],
   "routing": {
-    "domainStrategy": "IPIfNonMatch",
     "rules": [
       {
         "type": "field",
@@ -139,12 +138,6 @@
         ],
         "outboundTag": "sshportal"
       }
-    ]
-  },
-  "dns": {
-    "servers": [
-      "1.1.1.1",
-      "8.8.8.8"
     ]
   },
   "reverse": {

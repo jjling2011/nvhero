@@ -1,0 +1,62 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "ssh_local",
+      "port": 2222,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 2222,
+        "network": "tcp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "ssh_proxy",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "proxy address",
+            "port": 443,
+            "users": [
+              {
+                "id": "uuid"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/v2raysshin"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "ssh_local"
+        ],
+        "outboundTag": "ssh_proxy"
+      }
+    ]
+  },
+  "reverse": {
+    "portals": [
+      {
+        "tag": "sshportal",
+        "domain": "ssh.rpi3b.test"
+      }
+    ]
+  }
+}
