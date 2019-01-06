@@ -89,6 +89,16 @@
           "path": "__WSPATH__sshout"
         }
       }
+    },
+    {
+      "tag": "ssh_conn_in",
+      "port": 2224,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 2224,
+        "network": "tcp"
+      }
     }
   ],
   "outbounds": [
@@ -105,6 +115,13 @@
           "type": "none"
         }
       }
+    },
+    {
+      "tag": "ssh_conn_out",
+      "protocol": "freedom",
+      "settings": {
+        "redirect": "127.0.0.1:2224"
+      }
     }
   ],
   "routing": {
@@ -112,24 +129,31 @@
     "rules": [
       {
         "type": "field",
+        "inboundTag": [
+          "sshin"
+        ],
+        "outboundTag": "ssh_conn_out"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "ssh_conn_in"
+        ],
+        "outboundTag": "sshportal"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "sshout"
+        ],
+        "outboundTag": "sshportal"
+      },
+      {
+        "type": "field",
         "outboundTag": "block",
         "ip": [
           "geoip:private"
         ]
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "sshin"
-        ],
-        "outboundTag": "sshportal"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "shhout"
-        ],
-        "outboundTag": "sshportal"
       }
     ]
   },
@@ -143,7 +167,7 @@
     "portals": [
       {
         "tag": "sshportal",
-        "domain": "rpi3b.ssh.com"
+        "domain": "ssh.rpi3b.test"
       }
     ]
   }
