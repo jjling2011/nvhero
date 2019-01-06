@@ -2,26 +2,149 @@
   "log": {
     "loglevel": "none"
   },
-  "inbound": {
-    "protocol": "vmess",
-    "port": 1080,
-    "settings": {
-      "clients": [
-        {
-          "id": "__UUID__",
-          "alterId": 32
+  "inbounds": [
+    {
+      "protocol": "vmess",
+      "port": 1080,
+      "settings": {
+        "clients": [
+          {
+            "id": "__UUID__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "__WSPATH__a"
         }
-      ]
+      }
     },
-    "streamSettings": {
-      "network": "ws",
-      "wsSettings": {
-        "path": "__WSPATH__"
+    {
+      "protocol": "vmess",
+      "port": 1081,
+      "settings": {
+        "clients": [
+          {
+            "id": "__UUID__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "__WSPATH__b"
+        }
+      }
+    },
+    {
+      "protocol": "vmess",
+      "port": 1082,
+      "settings": {
+        "clients": [
+          {
+            "id": "__UUID__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "__WSPATH__c"
+        }
+      }
+    },
+    {
+      "tag": "sshin",
+      "protocol": "vmess",
+      "port": 1022,
+      "settings": {
+        "clients": [
+          {
+            "id": "__UUID__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "__WSPATH__sshin"
+        }
+      }
+    },
+    {
+      "tag": "sshout",
+      "protocol": "vmess",
+      "port": 1023,
+      "settings": {
+        "clients": [
+          {
+            "id": "__UUID__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "__WSPATH__sshout"
+        }
       }
     }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "none"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "block",
+        "ip": [
+          "geoip:private"
+        ]
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "sshin"
+        ],
+        "outboundTag": "sshportal"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "shhout"
+        ],
+        "outboundTag": "sshportal"
+      }
+    ]
   },
-  "outbound": {
-    "protocol": "freedom",
-    "settings": {}
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "reverse": {
+    "portals": [
+      {
+        "tag": "sshportal",
+        "domain": "rpi3b.ssh.com"
+      }
+    ]
   }
 }
