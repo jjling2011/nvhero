@@ -2,49 +2,105 @@
   "log": {
     "loglevel": "warning"
   },
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": false,
-      "ip": "127.0.0.1"
-    }
+  "routing": {
+    "balancers": [
+      {
+        "tag": "balancer",
+        "selector": [
+          "vout"
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "agentin"
+        ],
+        "balancerTag": "balancer"
+      }
+    ]
   },
-  "outbound": {
-    "tag": "agentout",
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [
-        {
-          "address": "your_app_name.herokuapp.com",
-          "port": 443,
-          "users": [
-            {
-              "id": "your_userid(xxxx-xxxx-...)",
-              "alterId": 32,
-              "security": "auto",
-              "level": 0
-            }
-          ]
-        }
-      ]
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "tlsSettings": {
-        "allowInsecure": false
+  "outbounds": [
+    {
+      "tag": "vouta",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "server address",
+            "port": 443,
+            "users": [
+              {
+                "id": "uuid"
+              }
+            ]
+          }
+        ]
       },
-      "wsSettings": {
-        "connectionReuse": true,
-        "path": "/your_web_socket_path"
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/tmpa"
+        }
       }
     },
-    "mux": {
-      "enabled": true,
-      "concurrency": 8
+    {
+      "tag": "voutb",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "server address",
+            "port": 443,
+            "users": [
+              {
+                "id": "uuid"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/tmpb"
+        }
+      }
+    },
+    {
+      "tag": "voutc",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "server address",
+            "port": 443,
+            "users": [
+              {
+                "id": "uuid"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/tmpc"
+        }
+      }
     }
-  }
+  ],
+  "inbounds": [
+    {
+      "tag": "agentin",
+      "port": 8084,
+      "listen": "0.0.0.0",
+      "protocol": "http"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "debug"
+    "loglevel": "none"
   },
   "inbounds": [
     {
@@ -53,52 +53,6 @@
           "path": "__WSPATH__c"
         }
       }
-    },
-    {
-      "tag": "sshin",
-      "protocol": "vmess",
-      "port": 1085,
-      "settings": {
-        "clients": [
-          {
-            "id": "__UUID__"
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "__WSPATH__sshin"
-        }
-      }
-    },
-    {
-      "tag": "sshout",
-      "protocol": "vmess",
-      "port": 1086,
-      "settings": {
-        "clients": [
-          {
-            "id": "__UUID__"
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "__WSPATH__sshout"
-        }
-      }
-    },
-    {
-      "tag": "ssh_conn_in",
-      "port": 1087,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 1087,
-        "network": "tcp"
-      }
     }
   ],
   "outbounds": [
@@ -106,53 +60,6 @@
       "tag": "direct",
       "protocol": "freedom",
       "settings": {}
-    },
-    {
-      "tag": "ssh_conn_out",
-      "protocol": "freedom",
-      "settings": {
-        "redirect": "127.0.0.1:1087"
-      }
     }
-  ],
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "sshin"
-        ],
-        "outboundTag": "ssh_conn_out"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "ssh_conn_in"
-        ],
-        "outboundTag": "sshportal"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "sshout"
-        ],
-        "outboundTag": "sshportal"
-      }
-    ]
-  },
-  "dns": {
-    "servers": [
-      "1.1.1.1",
-      "8.8.8.8"
-    ]
-  },
-  "reverse": {
-    "portals": [
-      {
-        "tag": "sshportal",
-        "domain": "ssh.rpi3b.test"
-      }
-    ]
-  }
+  ]
 }

@@ -10,7 +10,7 @@ fi
 
 unzip v2ray.zip
 
-cd v2ray-v${VER}-linux-64
+cd "./v2ray-v${VER}-linux-64/"
 
 cp ${root}/config_server.json ./config.json
 sed -i "s/__UUID__/${UUID}/g" ./config.json
