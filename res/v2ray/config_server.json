@@ -57,7 +57,7 @@
     {
       "tag": "sshin",
       "protocol": "vmess",
-      "port": 2222,
+      "port": 1085,
       "settings": {
         "clients": [
           {
@@ -75,7 +75,7 @@
     {
       "tag": "sshout",
       "protocol": "vmess",
-      "port": 2223,
+      "port": 1086,
       "settings": {
         "clients": [
           {
@@ -92,11 +92,11 @@
     },
     {
       "tag": "ssh_conn_in",
-      "port": 2224,
+      "port": 1087,
       "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1",
-        "port": 2224,
+        "port": 1087,
         "network": "tcp"
       }
     }
@@ -111,7 +111,7 @@
       "tag": "ssh_conn_out",
       "protocol": "freedom",
       "settings": {
-        "redirect": "127.0.0.1:2224"
+        "redirect": "127.0.0.1:1087"
       }
     }
   ],
