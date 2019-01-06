@@ -57,7 +57,7 @@
     {
       "tag": "sshin",
       "protocol": "vmess",
-      "port": 1022,
+      "port": 2222,
       "settings": {
         "clients": [
           {
@@ -75,7 +75,7 @@
     {
       "tag": "sshout",
       "protocol": "vmess",
-      "port": 1023,
+      "port": 2223,
       "settings": {
         "clients": [
           {
