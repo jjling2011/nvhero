@@ -108,15 +108,6 @@
       "settings": {}
     },
     {
-      "tag": "block",
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "none"
-        }
-      }
-    },
-    {
       "tag": "ssh_conn_out",
       "protocol": "freedom",
       "settings": {
@@ -147,13 +138,6 @@
           "sshout"
         ],
         "outboundTag": "sshportal"
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "ip": [
-          "geoip:private"
-        ]
       }
     ]
   },
