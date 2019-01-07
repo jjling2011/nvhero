@@ -7,7 +7,7 @@
       "tag": "local",
       "protocol": "freedom",
       "settings": {
-        "redirect": "127.0.0.1:22"
+        "redirect": "127.0.0.1:4000"
       }
     },
     {
