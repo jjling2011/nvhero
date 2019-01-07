@@ -7,7 +7,9 @@
       {
         "tag": "balancer",
         "selector": [
-          "vout"
+          "vouta",
+          "voutb",
+          "voutc"
         ]
       }
     ],
@@ -98,7 +100,7 @@
   "inbounds": [
     {
       "tag": "agentin",
-      "port": 8084,
+      "port": 1080,
       "listen": "0.0.0.0",
       "protocol": "http"
     }

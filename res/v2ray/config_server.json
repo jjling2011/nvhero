@@ -55,7 +55,7 @@
       }
     },
     {
-      "tag": "sshin",
+      "tag": "client",
       "protocol": "vmess",
       "port": 1085,
       "settings": {
@@ -68,12 +68,12 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "__WSPATH__sshin"
+          "path": "__WSPATH__client"
         }
       }
     },
     {
-      "tag": "sshout",
+      "tag": "server",
       "protocol": "vmess",
       "port": 1086,
       "settings": {
@@ -86,18 +86,8 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "__WSPATH__sshout"
+          "path": "__WSPATH__server"
         }
-      }
-    },
-    {
-      "tag": "ssh_conn_in",
-      "port": 1087,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 1087,
-        "network": "tcp"
       }
     }
   ],
@@ -106,13 +96,6 @@
       "tag": "direct",
       "protocol": "freedom",
       "settings": {}
-    },
-    {
-      "tag": "ssh_conn_out",
-      "protocol": "freedom",
-      "settings": {
-        "redirect": "127.0.0.1:1087"
-      }
     }
   ],
   "routing": {
@@ -120,31 +103,24 @@
       {
         "type": "field",
         "inboundTag": [
-          "sshin"
+          "client"
         ],
-        "outboundTag": "ssh_conn_out"
+        "outboundTag": "protal"
       },
       {
         "type": "field",
         "inboundTag": [
-          "ssh_conn_in"
+          "server"
         ],
-        "outboundTag": "sshportal"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "sshout"
-        ],
-        "outboundTag": "sshportal"
+        "outboundTag": "portal"
       }
     ]
   },
   "reverse": {
     "portals": [
       {
-        "tag": "sshportal",
-        "domain": "ssh.rpi3b.test"
+        "tag": "portal",
+        "domain": "abc.revers.test"
       }
     ]
   }

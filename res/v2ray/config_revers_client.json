@@ -2,16 +2,21 @@
   "log": {
     "loglevel": "warning"
   },
+  "inbounds": [
+    {
+      "tag": "local",
+      "port": 4000,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 4000,
+        "network": "tcp,udp"
+      }
+    }
+  ],
   "outbounds": [
     {
-      "tag": "ssh_local",
-      "protocol": "freedom",
-      "settings": {
-        "redirect": "127.0.0.1:22"
-      }
-    },
-    {
-      "tag": "ssh_proxy",
+      "tag": "remote",
       "protocol": "vmess",
       "settings": {
         "vnext": [
@@ -30,7 +35,7 @@
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "/v2raysshout"
+          "path": "/v2rayclient"
         }
       }
     }
@@ -40,27 +45,9 @@
       {
         "type": "field",
         "inboundTag": [
-          "sshportal"
+          "local"
         ],
-        "domain": [
-          "full:ssh.rpi3b.test"
-        ],
-        "outboundTag": "ssh_proxy"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "sshportal"
-        ],
-        "outboundTag": "ssh_local"
-      }
-    ]
-  },
-  "reverse": {
-    "bridges": [
-      {
-        "tag": "sshportal",
-        "domain": "ssh.rpi3b.test"
+        "outboundTag": "remote"
       }
     ]
   }
