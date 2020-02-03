@@ -34,7 +34,7 @@
             "port": 443,
             "users": [
               {
-                "user": "__OUT_UUID__"
+                "id": "__OUT_UUID__"
               }
             ]
           }

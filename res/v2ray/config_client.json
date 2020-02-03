@@ -22,7 +22,7 @@
             "port": 443,
             "users": [
               {
-                "user": "29126b40-b29e-4b64-a4ee-ce6a0d46cdb9"
+                "id": "29126b40-b29e-4b64-a4ee-ce6a0d46cdb9"
               }
             ]
           }
