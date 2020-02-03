@@ -1,0 +1,72 @@
+{
+  "log": {
+    "loglevel": "none"
+  },
+  "inbounds": [
+    {
+      "tag": "relay-in",
+      "port": 1080,
+      "protocol": "socks",
+      "settings": {
+        "auth": "password",
+        "accounts": [
+          {
+            "user": "__IN_USERNAME__",
+            "pass": "__IN_PASSWORD__"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "__IN_WSPATH__"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "relay-out",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "__OUT_SERVER__",
+            "port": 443,
+            "users": [
+              {
+                "user": "__OUT_USERNAME__",
+                "pass": "__OUT_PASSWORD__"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "__OUT_WSPATH__"
+        }
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {}
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "block",
+        "ip": [
+          "geoip:private"
+        ]
+      }
+    ],
+    "domainStrategy": "IPIfNonMatch"
+  }
+}

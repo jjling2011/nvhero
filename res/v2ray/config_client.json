@@ -2,107 +2,40 @@
   "log": {
     "loglevel": "warning"
   },
-  "routing": {
-    "balancers": [
-      {
-        "tag": "balancer",
-        "selector": [
-          "vouta",
-          "voutb",
-          "voutc"
-        ]
-      }
-    ],
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "agentin"
-        ],
-        "balancerTag": "balancer"
-      }
-    ]
-  },
-  "outbounds": [
-    {
-      "tag": "vouta",
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
-            "address": "server address",
-            "port": 443,
-            "users": [
-              {
-                "id": "uuid"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "wsSettings": {
-          "path": "/v2raya"
-        }
-      }
-    },
-    {
-      "tag": "voutb",
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
-            "address": "server address",
-            "port": 443,
-            "users": [
-              {
-                "id": "uuid"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "wsSettings": {
-          "path": "/v2rayb"
-        }
-      }
-    },
-    {
-      "tag": "voutc",
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
-            "address": "server address",
-            "port": 443,
-            "users": [
-              {
-                "id": "uuid"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "wsSettings": {
-          "path": "/v2rayc"
-        }
-      }
-    }
-  ],
   "inbounds": [
     {
-      "tag": "agentin",
-      "port": 1080,
-      "listen": "0.0.0.0",
-      "protocol": "http"
+      "tag": "vin",
+      "protocol": "http",
+      "listen": "127.0.0.1",
+      "port": 8080,
+      "settings": {}
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "socks-out",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "www.baidu.com",
+            "port": 443,
+            "users": [
+              {
+                "user": "my-username",
+                "pass": "my-password"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/v2ray"
+        }
+      }
     }
   ]
 }

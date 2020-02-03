@@ -6,16 +6,40 @@
   ],
   "env": {
     "VER": {
-      "description": "输入v2ray-core版本",
-      "value": "4.10.0"
+      "description": "v2ray-core version",
+      "value": "4.22.1"
     },
-    "WSPATH": {
-      "description": "ws路径,作死就用默认值",
+    "IN_USERNAME": {
+      "description": "inbound socks username",
+      "value": "username"
+    },
+    "IN_PASSWORD": {
+      "description": "inbound socks password",
+      "value": "password"
+    },
+    "IN_WSPATH": {
+      "description": "inbound ws path",
       "value": "/v2ray"
     },
-    "UUID": {
-      "description": "Vmess的UUID即密码,作死就用默认值",
-      "value": "8fd6dadc-0d59-4ae7-93bb-e6b8a231c2c2"
+    "REMOTE_SERVER": {
+      "description": "on/off",
+      "value": "off"
+    },
+    "OUT_SERVER": {
+      "description": "remote server address",
+      "value": "www.baidu.com"
+    },
+    "OUT_USERNAME": {
+      "description": "remote server username",
+      "value": "username"
+    },
+    "OUT_PASSWORD": {
+      "description": "remote server password",
+      "value": "password"
+    },
+    "OUT_WSPATH": {
+      "description": "remote server ws path",
+      "value": "/v2ray"
     }
   },
   "website": "https://github.com/jjling2011/nvhero",
