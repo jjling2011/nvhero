@@ -5,13 +5,9 @@
     "nvhero"
   ],
   "env": {
-    "IN_USERNAME": {
-      "description": "inbound socks username",
-      "value": "username"
-    },
-    "IN_PASSWORD": {
-      "description": "inbound socks password",
-      "value": "password"
+    "IN_UUID": {
+      "description": "inbound vmess uuid",
+      "value": "f6349dcc-347f-4b95-843b-501df0ae176b"
     },
     "IN_WSPATH": {
       "description": "inbound ws path",
@@ -25,13 +21,9 @@
       "description": "remote server address",
       "value": "www.baidu.com"
     },
-    "OUT_USERNAME": {
-      "description": "remote server username",
-      "value": "username"
-    },
-    "OUT_PASSWORD": {
-      "description": "remote server password",
-      "value": "password"
+    "OUT_UUID": {
+      "description": "remote vmess UUID",
+      "value": "f6349dcc-347f-4b95-843b-501df0ae176b"
     },
     "OUT_WSPATH": {
       "description": "remote server ws path",

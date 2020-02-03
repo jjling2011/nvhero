@@ -13,17 +13,16 @@
   ],
   "outbounds": [
     {
-      "tag": "socks-out",
-      "protocol": "socks",
+      "tag": "vout",
+      "protocol": "vmess",
       "settings": {
-        "servers": [
+        "vnext": [
           {
             "address": "www.baidu.com",
             "port": 443,
             "users": [
               {
-                "user": "my-username",
-                "pass": "my-password"
+                "user": "29126b40-b29e-4b64-a4ee-ce6a0d46cdb9"
               }
             ]
           }

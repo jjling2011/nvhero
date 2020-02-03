@@ -6,13 +6,11 @@
     {
       "tag": "relay-in",
       "port": 1080,
-      "protocol": "socks",
+      "protocol": "vmess",
       "settings": {
-        "auth": "password",
-        "accounts": [
+        "clients": [
           {
-            "user": "__IN_USERNAME__",
-            "pass": "__IN_PASSWORD__"
+            "id": "__IN_UUID__"
           }
         ]
       },
@@ -28,16 +26,15 @@
   "outbounds": [
     {
       "tag": "relay-out",
-      "protocol": "socks",
+      "protocol": "vmess",
       "settings": {
-        "servers": [
+        "vnext": [
           {
             "address": "__OUT_SERVER__",
             "port": 443,
             "users": [
               {
-                "user": "__OUT_USERNAME__",
-                "pass": "__OUT_PASSWORD__"
+                "user": "__OUT_UUID__"
               }
             ]
           }
