@@ -5,10 +5,6 @@
     "nvhero"
   ],
   "env": {
-    "VER": {
-      "description": "v2ray-core version",
-      "value": "4.22.1"
-    },
     "IN_USERNAME": {
       "description": "inbound socks username",
       "value": "username"

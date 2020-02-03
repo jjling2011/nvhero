@@ -3,12 +3,6 @@
 root=/res/v2ray
 cd ${root}
 
-if [ ! -f /res/v2ray/v2ray.zip ]; then
-  wget -O v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v${VER}/v2ray-linux-64.zip
-fi
-
-unzip v2ray.zip
-
 if [ "x${REMOTE_SERVER}" == "xon" ]; then
   cp ${root}/config_relay.json ./config.json
   sed -i "s/__OUT_SERVER__/${OUT_SERVER}/g" ./config.json
