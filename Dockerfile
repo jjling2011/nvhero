@@ -11,7 +11,7 @@ RUN apk --update add nginx supervisor gettext libintl wget bash\
     && mkdir -p /etc/supervisor.d \
     && cp /res/conf/supervisord/supervisor.ini /etc/supervisor.d/ \
     && cd /res/v2ray \
-    && wget -O v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v4.22.1/v2ray-linux-64.zip \
+    && wget -O v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v4.26.0/v2ray-linux-64.zip \
     && unzip v2ray.zip \
     && rm /res/v2ray/config.json 
 
